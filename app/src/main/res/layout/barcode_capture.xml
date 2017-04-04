@@ -7,7 +7,8 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:keepScreenOn="true"
-    android:orientation="vertical">
+    android:orientation="vertical"
+    android:background="#0000">
 
 <!--
         <com.google.android.gms.samples.vision.barcodereader.ui.camera.GraphicOverlay
@@ -58,6 +59,7 @@
         android:layout_height="wrap_content"
         android:layout_alignParentBottom="true"
         android:layout_alignParentRight="true"
+        android:background="#0000"
         android:layout_alignParentTop="true">
 
         <TextView
@@ -184,6 +186,7 @@
         android:layout_height="wrap_content"
         android:layout_alignParentLeft="true"
         android:layout_alignParentStart="true"
+        android:background="#0000"
         android:layout_below="@+id/textView3"
         android:layout_toLeftOf="@+id/lLayout1"
         android:layout_toStartOf="@+id/lLayout1">

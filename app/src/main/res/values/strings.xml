@@ -1,5 +1,5 @@
 <resources>
-    <string name="app_name">BT300</string>
+    <string name="app_name" translatable="false">BT300</string>
     <string name="ok" translatable="false">OK</string>
     <string name="permission_camera_rationale" translatable="false">Access to the camera is needed for detection</string>
     <string name="no_camera_permission" translatable="false">This application cannot run because it does not have the camera permission.  The application will now exit.</string>
