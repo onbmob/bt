@@ -24,6 +24,11 @@ dependencies {
     androidTestCompile('com.android.support.test.espresso:espresso-core:2.2.2', {
         exclude group: 'com.android.support', module: 'support-annotations'
     })
-    compile 'com.android.support:appcompat-v7:25.3.1'
+//    compile 'com.android.support:appcompat-v7:25.3.1'
     testCompile 'junit:junit:4.12'
+
+    // Important - the CameraSource implementation in this project requires version 8.1 or higher.
+    compile 'com.google.android.gms:play-services-vision:10.2.0+'
+    compile 'com.android.support:design:25.2.0'
+
 }

@@ -1,0 +1,79 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:orientation="vertical"
+    android:id="@+id/activity_setting"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context="com.stemsc.bt.SettingAct">
+    <Switch
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/auto_focus"
+        android:id="@+id/m_auto_focus"
+        android:checked="true"
+        android:duplicateParentState="true" />
+    <Switch
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/use_flash"
+        android:id="@+id/m_use_flash"
+        android:checked="false" />
+
+    <Switch
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="RAW (Test) режим"
+        android:id="@+id/m_raw"
+        android:checked="false" />
+
+<!--
+    <TextView
+        android:text="Выводить"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/textView"
+        android:textAppearance="?android:attr/textAppearanceLarge"
+        tools:layout_marginTop="20dp" />
+
+    <Switch
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Стрелки для ячеек"
+        android:id="@+id/use_arrow"
+        android:checked="true" />
+    <Switch
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Описание товара   "
+        android:id="@+id/use_description"
+        android:checked="true" />
+
+    <Switch
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Значение класса    "
+        android:id="@+id/use_deb"
+        android:checked="false" />
+-->
+
+    <LinearLayout
+        android:orientation="horizontal"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <Button
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Сохранить"
+            android:id="@+id/button3"
+            android:layout_weight="1" />
+
+        <Button
+            android:text="Выйти"
+            android:layout_width="173dp"
+            android:layout_height="wrap_content"
+            android:id="@+id/button4" />
+    </LinearLayout>
+
+</LinearLayout>

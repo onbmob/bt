@@ -1,3 +1,17 @@
 <resources>
-    <string name="app_name">Bt</string>
+    <string name="app_name">BT300</string>
+    <string name="ok" translatable="false">OK</string>
+    <string name="permission_camera_rationale" translatable="false">Access to the camera is needed for detection</string>
+    <string name="no_camera_permission" translatable="false">This application cannot run because it does not have the camera permission.  The application will now exit.</string>
+    <string name="low_storage_error" translatable="false">Face detector dependencies cannot be downloaded due to low device storage</string>
+    <string name="title_activity_main" translatable="false">StemSC Barcode Reader</string>
+    <string name="barcode_header">Click &quot;Read Barcode&quot; to read a barcode</string>
+    <string name="read_barcode" translatable="false">Read Barcode</string>
+    <string name="auto_focus">Auto Focus</string>
+    <string name="use_flash">"Use Flash       "</string>
+    <string name="barcode_success">Barcode read successfully</string>
+    <string name="barcode_failure">No barcode captured</string>
+    <string name="barcode_error">"Error reading barcode: %1$s"</string>
+    <string name="f">Фильтр</string>
+    <string name="stemsc_txt">Stemsc. Pre-sale.WMS AR</string>
 </resources>

@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="barcode_header">Нажмите &quot;Read Barcode&quot; для сканирования</string>
+    <string name="auto_focus">Автофокусировка</string>
+    <string name="barcode_failure">Штрихкод не обнаружен</string>
+    <string name="barcode_error">\"Ошибка чтения штрихкода: %1$s\"</string>
+    <string name="barcode_success">Штрихкод сосканирован успешно</string>
+    <string name="use_flash">"Подсветка        "</string>
+    <string name="f">Фильтр</string>
+    <string name="stemsc_txt">Stemsc. Pre-sale.WMS AR</string>
+</resources>
