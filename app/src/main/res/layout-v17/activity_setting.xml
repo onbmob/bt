@@ -27,35 +27,42 @@
         android:id="@+id/m_raw"
         android:checked="false" />
 
-<!--
-    <TextView
-        android:text="Выводить"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:id="@+id/textView"
-        android:textAppearance="?android:attr/textAppearanceLarge"
-        tools:layout_marginTop="20dp" />
-
     <Switch
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Стрелки для ячеек"
-        android:id="@+id/use_arrow"
-        android:checked="true" />
-    <Switch
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Описание товара   "
-        android:id="@+id/use_description"
-        android:checked="true" />
-
-    <Switch
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Значение класса    "
-        android:id="@+id/use_deb"
+        android:text="Режим предпросмотра"
+        android:id="@+id/m_pv"
         android:checked="false" />
--->
+
+    <!--
+            <TextView
+                android:text="Выводить"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:id="@+id/textView"
+                android:textAppearance="?android:attr/textAppearanceLarge"
+                tools:layout_marginTop="20dp" />
+
+            <Switch
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Стрелки для ячеек"
+                android:id="@+id/use_arrow"
+                android:checked="true" />
+            <Switch
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Описание товара   "
+                android:id="@+id/use_description"
+                android:checked="true" />
+
+            <Switch
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Значение класса    "
+                android:id="@+id/use_deb"
+                android:checked="false" />
+        -->
 
     <LinearLayout
         android:orientation="horizontal"

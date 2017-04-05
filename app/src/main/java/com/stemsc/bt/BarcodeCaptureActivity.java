@@ -124,6 +124,7 @@ public final class BarcodeCaptureActivity extends Activity {
     boolean autoFocus;
     boolean useFlash;
     boolean mRaw;
+    boolean mPV;
 
 
     /**
@@ -150,6 +151,7 @@ public final class BarcodeCaptureActivity extends Activity {
         autoFocus = sPref.getBoolean("af", true);
         useFlash = sPref.getBoolean("fl", false);
         mRaw = sPref.getBoolean("raw", false);
+        mPV = sPref.getBoolean("pv", false);
 
         // Check for the camera permission before accessing the camera.  If the
         // permission is not granted yet, request permission.
@@ -170,6 +172,12 @@ public final class BarcodeCaptureActivity extends Activity {
         tvSost = (TextView) findViewById(R.id.tvSost);
         lLay = (RelativeLayout) findViewById(R.id.lLayout1);
 
+        if (mPV) {
+            mPreview.setVisibility(View.VISIBLE);
+        }else{
+            mPreview.setVisibility(View.INVISIBLE);
+
+        }
         if (mRaw) {
             tvSost.setText("Тестовый(raw) режим");
             lLay.setVisibility(View.INVISIBLE);
