@@ -163,7 +163,7 @@ public final class BarcodeCaptureActivity extends Activity {
         }
 
 //        gestureDetector = new GestureDetector(this, new CaptureGestureListener());
-        scaleGestureDetector = new ScaleGestureDetector(this, new ScaleListener());
+//        scaleGestureDetector = new ScaleGestureDetector(this, new ScaleListener());
 
 //        Snackbar.make(mGraphicOverlay, "Tap to capture. Pinch/Stretch to zoom",
 //                Snackbar.LENGTH_LONG)
@@ -176,7 +176,6 @@ public final class BarcodeCaptureActivity extends Activity {
             mPreview.setVisibility(View.VISIBLE);
         }else{
             mPreview.setVisibility(View.INVISIBLE);
-
         }
         if (mRaw) {
             tvSost.setText("Тестовый(raw) режим");
@@ -253,14 +252,14 @@ public final class BarcodeCaptureActivity extends Activity {
                 .show();
     }
 
-    @Override
-    public boolean onTouchEvent(MotionEvent e) {
-        boolean b = scaleGestureDetector.onTouchEvent(e);
-
-        boolean c = gestureDetector.onTouchEvent(e);
-
-        return b || c || super.onTouchEvent(e);
-    }
+//    @Override
+//    public boolean onTouchEvent(MotionEvent e) {
+//        boolean b = scaleGestureDetector.onTouchEvent(e);
+//
+//        boolean c = gestureDetector.onTouchEvent(e);
+//
+//        return b || c || super.onTouchEvent(e);
+//    }
 
     /**
      * Creates and starts the camera.  Note that this uses a higher resolution in comparison

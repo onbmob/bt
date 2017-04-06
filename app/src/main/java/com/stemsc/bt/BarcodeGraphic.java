@@ -215,7 +215,7 @@ class BarcodeGraphic extends GraphicOverlay.Graphic {
                         canvas.drawText("Доступный лоток " + sTray + bounce.getCount(), rect.left, rect.top - 24, gTxtP);
                     }
                 } else { // лоток "левый"
-                    bounce.reset();
+//                    bounce.reset();
                     canvas.drawRect(rect, rRectP);
                     canvas.drawText("Этот лоток недоступен", rect.left, rect.top - 24, rTxtP);
                 }
@@ -267,7 +267,7 @@ class BarcodeGraphic extends GraphicOverlay.Graphic {
                     }
 
                     return;
-                } else bounce.reset();
+                }// else bounce.reset();
 
                 if (route != null && !route.isNull(barcode.rawValue)) {
                     int bc = 999;
@@ -430,7 +430,7 @@ class BarcodeGraphic extends GraphicOverlay.Graphic {
 
                     return;
                 } else {
-                    bounce.reset();
+//                    bounce.reset();
                     canvas.drawRect(rect, mRectPaint);
                     canvas.drawText(barcode.rawValue, rect.left, rect.bottom, mTextPaint);
                 }
@@ -447,7 +447,7 @@ class BarcodeGraphic extends GraphicOverlay.Graphic {
                         canvas.drawText("Зона погрузки" + bounce.getCount(), rect.left, rect.top - 24, gTxtP);
                     }
                 } else {
-                    bounce.reset();
+//                    bounce.reset();
                     canvas.drawRect(rect, mRectPaint);
                     canvas.drawText(barcode.rawValue, rect.left, rect.top - 24, mTextPaint);
                 }
