@@ -66,6 +66,8 @@ class BarcodeGraphic extends GraphicOverlay.Graphic {
     private static int countGoods = 0;
     private static int quantityGoods = 0;
 
+    private static int iWBC = 100;
+
     //    private static String bcTray = "";
     private static String bcTargetCell = "";
 
@@ -84,6 +86,8 @@ class BarcodeGraphic extends GraphicOverlay.Graphic {
         Context applicationContext = MainActivity.getContextOfApplication();
         SharedPreferences sPref = PreferenceManager.getDefaultSharedPreferences(applicationContext);
         mRaw = sPref.getBoolean("raw", false);
+        iWBC =sPref.getInt("wbc",100);
+
         mRectPaint = new Paint();
         mRectPaint.setColor(Color.RED);
         mRectPaint.setStyle(Paint.Style.STROKE);
@@ -156,6 +160,7 @@ class BarcodeGraphic extends GraphicOverlay.Graphic {
         rect.top = translateY(rect.top);
         rect.right = translateX(rect.right);
         rect.bottom = translateY(rect.bottom);
+
 
         if (mRaw) {
             BarcodeCaptureActivity.tvSost.setText(barcode.rawValue);

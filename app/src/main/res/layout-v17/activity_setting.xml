@@ -5,64 +5,59 @@
     android:id="@+id/activity_setting"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context="com.stemsc.bt.SettingAct">
+    tools:context="com.stemsc.bt.SettingAct"
+    android:weightSum="1">
     <Switch
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
+        android:layout_width="212dp"
+        android:layout_height="0dp"
         android:text="@string/auto_focus"
         android:id="@+id/m_auto_focus"
         android:checked="true"
-        android:duplicateParentState="true" />
+        android:layout_weight="0.10" />
     <Switch
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
+        android:layout_width="212dp"
+        android:layout_height="0dp"
         android:text="@string/use_flash"
         android:id="@+id/m_use_flash"
-        android:checked="false" />
+        android:checked="false"
+        android:layout_weight="0.10"  />
 
     <Switch
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
+        android:layout_width="212dp"
+        android:layout_height="0dp"
         android:text="RAW (Test) режим"
         android:id="@+id/m_raw"
-        android:checked="false" />
+        android:checked="false"
+        android:layout_weight="0.10"  />
+
 
     <Switch
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
+        android:layout_width="212dp"
+        android:layout_height="0dp"
         android:text="Режим предпросмотра"
         android:id="@+id/m_pv"
-        android:checked="false" />
+        android:checked="false"
+        android:layout_weight="0.10"  />
 
-    <!--
-            <TextView
-                android:text="Выводить"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:id="@+id/textView"
-                android:textAppearance="?android:attr/textAppearanceLarge"
-                tools:layout_marginTop="20dp" />
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="40dp"
+        android:orientation="horizontal">
 
-            <Switch
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="Стрелки для ячеек"
-                android:id="@+id/use_arrow"
-                android:checked="true" />
-            <Switch
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="Описание товара   "
-                android:id="@+id/use_description"
-                android:checked="true" />
+        <TextView
+            android:layout_width="170dp"
+            android:layout_height="wrap_content"
+            android:textStyle="bold"
+            android:text="Ширина штрихкода(мм)" />
 
-            <Switch
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="Значение класса    "
-                android:id="@+id/use_deb"
-                android:checked="false" />
-        -->
+        <EditText
+            android:id="@+id/etWBC"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="100"
+            android:inputType="numberDecimal" />
+
+    </LinearLayout>
 
     <LinearLayout
         android:orientation="horizontal"
@@ -74,13 +69,14 @@
             android:layout_height="wrap_content"
             android:text="Сохранить"
             android:id="@+id/button3"
-            android:layout_weight="1" />
+            android:layout_weight="0.7" />
 
         <Button
             android:text="Выйти"
-            android:layout_width="173dp"
+            android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:id="@+id/button4" />
+            android:id="@+id/button4"
+            android:layout_weight="0.3" />
     </LinearLayout>
 
 </LinearLayout>

@@ -6,10 +6,12 @@ import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.CompoundButton;
+import android.widget.EditText;
 
 public class SettingAct extends AppCompatActivity implements View.OnClickListener {
 
     private SharedPreferences sPref;
+    private EditText et1;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -17,19 +19,19 @@ public class SettingAct extends AppCompatActivity implements View.OnClickListene
         setContentView(R.layout.activity_setting);
         findViewById(R.id.button3).setOnClickListener(this);
         findViewById(R.id.button4).setOnClickListener(this);
+        et1 = (EditText) findViewById(R.id.etWBC);
 
         sPref = PreferenceManager.getDefaultSharedPreferences(this.getApplicationContext());
         ((CompoundButton) findViewById(R.id.m_auto_focus)).setChecked(sPref.getBoolean("af", true));
         ((CompoundButton) findViewById(R.id.m_use_flash)).setChecked(sPref.getBoolean("fl", false));
         ((CompoundButton) findViewById(R.id.m_raw)).setChecked(sPref.getBoolean("raw", false));
         ((CompoundButton) findViewById(R.id.m_pv)).setChecked(sPref.getBoolean("pv", false));
-//        ((CompoundButton) findViewById(R.id.use_arrow)).setChecked(sPref.getBoolean("arr", true));
-//        ((CompoundButton) findViewById(R.id.use_description)).setChecked(sPref.getBoolean("desc", true));
-//        ((CompoundButton) findViewById(R.id.use_deb)).setChecked(sPref.getBoolean("deb", false));
+        ((EditText) findViewById(R.id.etWBC)).setText(sPref.getInt("wbc", 100));
     }
 
     @Override
     public void onClick(View view) {
+
         if (view.getId() == R.id.button3) {
 
             SharedPreferences.Editor ed = sPref.edit();
@@ -37,9 +39,7 @@ public class SettingAct extends AppCompatActivity implements View.OnClickListene
             ed.putBoolean("fl", ((CompoundButton) findViewById(R.id.m_use_flash)).isChecked());
             ed.putBoolean("raw", ((CompoundButton) findViewById(R.id.m_raw)).isChecked());
             ed.putBoolean("pv", ((CompoundButton) findViewById(R.id.m_pv)).isChecked());
-//            ed.putBoolean("arr", ((CompoundButton) findViewById(R.id.use_arrow)).isChecked());
-//            ed.putBoolean("desc", ((CompoundButton) findViewById(R.id.use_description)).isChecked());
-//            ed.putBoolean("deb", ((CompoundButton) findViewById(R.id.use_deb)).isChecked());
+            ed.putInt("wbc", Integer.parseInt(et1.getText().toString()));
             //  ed.commit(); // Типа во внешнюю
             ed.apply();
 
