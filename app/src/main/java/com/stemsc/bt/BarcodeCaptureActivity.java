@@ -41,13 +41,10 @@ import android.support.design.widget.Snackbar;
 import android.support.v4.app.ActivityCompat;
 import android.util.Log;
 import android.view.GestureDetector;
-import android.view.MotionEvent;
 import android.view.ScaleGestureDetector;
 import android.view.View;
-import android.view.ViewGroup;
 import android.view.Window;
 import android.view.WindowManager;
-import android.widget.LinearLayout;
 import android.widget.RelativeLayout;
 import android.widget.SeekBar;
 import android.widget.TextView;
@@ -125,14 +122,18 @@ public final class BarcodeCaptureActivity extends Activity implements SeekBar.On
     static TextView tvTray;
 
     private SeekBar sbS;
-    private SeekBar sbV;
+    private SeekBar sbW;
     private SeekBar sbH;
     private TextView target;
 
-    boolean autoFocus;
-    boolean useFlash;
-    boolean mRaw;
-    boolean mPV;
+    private SharedPreferences sPref;
+    private boolean autoFocus;
+    private boolean useFlash;
+    private boolean mRaw;
+    private boolean mPV;
+    private int mS;
+    private int mH;
+    private int mW;
 
 
     /**
@@ -155,11 +156,17 @@ public final class BarcodeCaptureActivity extends Activity implements SeekBar.On
 //        boolean autoFocus = getIntent().getBooleanExtra(AutoFocus, false);
 //        boolean useFlash = getIntent().getBooleanExtra(UseFlash, false);
         // Теперь берем из настроек
-        SharedPreferences sPref = PreferenceManager.getDefaultSharedPreferences(this.getApplicationContext());
+        sPref = PreferenceManager.getDefaultSharedPreferences(this.getApplicationContext());
         autoFocus = sPref.getBoolean("af", true);
         useFlash = sPref.getBoolean("fl", false);
         mRaw = sPref.getBoolean("raw", false);
         mPV = sPref.getBoolean("pv", false);
+        mS = sPref.getInt("s", 50);
+        mH = sPref.getInt("h", 360);
+        mW = sPref.getInt("v", 640);
+//        Log.d(TAG,"=== mS === "+mS);
+//        Log.d(TAG,"=== mH === "+mH);
+//        Log.d(TAG,"=== mW === "+mW);
 
         // Check for the camera permission before accessing the camera.  If the
         // permission is not granted yet, request permission.
@@ -185,6 +192,29 @@ public final class BarcodeCaptureActivity extends Activity implements SeekBar.On
         }else{
             mPreview.setVisibility(View.INVISIBLE);
         }
+
+        sbS = (SeekBar) findViewById(R.id.seekBarS);
+        sbW = (SeekBar) findViewById(R.id.seekBarW);
+        sbH = (SeekBar) findViewById(R.id.seekBarH);
+
+        sbS.setOnSeekBarChangeListener(this);
+        sbW.setOnSeekBarChangeListener(this);
+        sbH.setOnSeekBarChangeListener(this);
+
+        target = (TextView) findViewById(R.id.target);
+        RelativeLayout.LayoutParams MyParams = new RelativeLayout.LayoutParams(128*mS/10,72*mS/10);
+        MyParams.addRule(RelativeLayout.ALIGN_PARENT_TOP);
+        MyParams.addRule(RelativeLayout.ALIGN_PARENT_LEFT);
+        MyParams.topMargin= mW;
+        MyParams.leftMargin=mH;
+        target.setLayoutParams(MyParams);
+
+        sbS.setProgress(mS);
+        sbW.setProgress(mW);
+        sbH.setProgress(mH);
+        ((TextView) findViewById(R.id.taPar)).setText(""+mS+" "+mW+" "+mH);
+
+
         if (mRaw) {
             tvSost.setText("Тестовый(raw) режим");
             lLay.setVisibility(View.INVISIBLE);
@@ -220,15 +250,6 @@ public final class BarcodeCaptureActivity extends Activity implements SeekBar.On
         tvCell.setVisibility(View.INVISIBLE);
         tvTrayT.setVisibility(View.INVISIBLE);
         tvTray.setVisibility(View.INVISIBLE);
-
-        sbS = (SeekBar) findViewById(R.id.seekBarS);
-        sbS.setOnSeekBarChangeListener(this);
-        sbV = (SeekBar) findViewById(R.id.seekBarV);
-        sbV.setOnSeekBarChangeListener(this);
-        sbH = (SeekBar) findViewById(R.id.seekBarH);
-        sbH.setOnSeekBarChangeListener(this);
-        target = (TextView) findViewById(R.id.target);
-
 
         // Получаем json
 //        AsyncTask<Void, Void, String> tmp = new ParseTask("http://onbqth.com/route2.json");
@@ -350,7 +371,7 @@ public final class BarcodeCaptureActivity extends Activity implements SeekBar.On
     protected void onResume() {
         super.onResume();
         startCameraSource();
-        Log.d(TAG, "onResume surfaceView");
+//        Log.d(TAG, "onResume surfaceView");
     }
 
     /**
@@ -456,7 +477,7 @@ public final class BarcodeCaptureActivity extends Activity implements SeekBar.On
         RelativeLayout.LayoutParams MyParams = new RelativeLayout.LayoutParams(1280*sbS.getProgress()/100,720*sbS.getProgress()/100);
         MyParams.addRule(RelativeLayout.ALIGN_PARENT_TOP);
         MyParams.addRule(RelativeLayout.ALIGN_PARENT_LEFT);
-        MyParams.topMargin=sbV.getProgress();
+        MyParams.topMargin= sbW.getProgress();
         MyParams.leftMargin=sbH.getProgress();
         target.setLayoutParams(MyParams);
 
@@ -468,6 +489,12 @@ public final class BarcodeCaptureActivity extends Activity implements SeekBar.On
 
     @Override
     public void onStopTrackingTouch(SeekBar seekBar) {
+        SharedPreferences.Editor ed = sPref.edit();
+        ed.putInt("s", sbS.getProgress());
+        ed.putInt("v", sbW.getProgress());
+        ed.putInt("h", sbH.getProgress());
+        ed.apply();
+        ((TextView) findViewById(R.id.taPar)).setText(""+sbS.getProgress()+" "+sbW.getProgress()+" "+sbH.getProgress());
     }
 
     private class ScaleListener implements ScaleGestureDetector.OnScaleGestureListener {

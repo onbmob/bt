@@ -41,6 +41,17 @@
         android:textColor="@color/colorMagenta"
         android:textSize="14dp" />
 
+    <TextView
+        android:id="@+id/taPar"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text=""
+        android:textColor="@color/colorMagenta"
+        android:textSize="24dp"
+        android:layout_below="@+id/textView3"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true" />
+
     <SeekBar
         android:id="@+id/seekBarS"
         android:layout_width="match_parent"
@@ -59,7 +70,7 @@
         />
 
     <SeekBar
-        android:id="@+id/seekBarV"
+        android:id="@+id/seekBarW"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginTop="310dp"
@@ -228,7 +239,6 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:layout_alignParentTop="true"
-        android:labelFor="@+id/ttttt"
         android:orientation="horizontal" />
 
 </RelativeLayout>
