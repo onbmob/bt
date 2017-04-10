@@ -8,32 +8,27 @@
     android:layout_height="match_parent"
     android:keepScreenOn="true"
     android:orientation="vertical"
-    android:background="#0000">
+    android:background="#000">
 
-<!--
-        <com.google.android.gms.samples.vision.barcodereader.ui.camera.GraphicOverlay
-            android:id="@+id/graphicOverlay"
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:layout_alignParentTop="true"
-            android:orientation="vertical" />
--->
+    <!--
 
+    android:visibility="invisible"
+            <com.google.android.gms.samples.vision.barcodereader.ui.camera.GraphicOverlay
+                android:id="@+id/graphicOverlay666"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_alignParentTop="true"
+                android:orientation="vertical" />
+
+        </com.google.android.gms.samples.vision.barcodereader.ui.camera.CameraSourcePreview>
+    -->
 
     <com.stemsc.bt.ui.camera.CameraSourcePreview
         android:id="@+id/preview"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:orientation="vertical">
-
-        <com.stemsc.bt.ui.camera.GraphicOverlay
-            android:id="@+id/graphicOverlay"
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:layout_alignParentTop="true"
-            android:orientation="vertical" />
-
-    </com.stemsc.bt.ui.camera.CameraSourcePreview>
+        android:orientation="vertical"
+        />
 
     <TextView
         android:id="@+id/textView3"
@@ -46,11 +41,36 @@
         android:textColor="@color/colorMagenta"
         android:textSize="14dp" />
 
+    <SeekBar
+        android:id="@+id/seekBarS"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="250dp"
+        android:max="100"
+        android:progress="5" />
+
+    <SeekBar
+        android:id="@+id/seekBarH"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="280dp"
+        android:max="1280"
+        android:progress="5"
+        />
+
+    <SeekBar
+        android:id="@+id/seekBarV"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="310dp"
+        android:max="720"
+        android:progress="5"
+        />
+
     <TextView
+        android:id="@+id/target"
         android:layout_width="400dp"
         android:layout_height="200dp"
-        android:layout_centerHorizontal="true"
-        android:layout_centerVertical="true"
         android:background="@drawable/x" />
 
     <RelativeLayout
@@ -59,8 +79,8 @@
         android:layout_height="wrap_content"
         android:layout_alignParentBottom="true"
         android:layout_alignParentRight="true"
-        android:background="#0000"
-        android:layout_alignParentTop="true">
+        android:layout_alignParentTop="true"
+        android:background="#0000">
 
         <TextView
             android:id="@+id/tvNeedT"
@@ -68,7 +88,7 @@
             android:layout_height="wrap_content"
             android:layout_alignParentTop="true"
             android:text="Лоток:"
-            android:textColor="#000"
+            android:textColor="#fff"
             android:textSize="14dp" />
 
         <TextView
@@ -87,7 +107,7 @@
             android:layout_height="wrap_content"
             android:layout_below="@+id/tvNeed"
             android:text="Aрт:"
-            android:textColor="#000"
+            android:textColor="#fff"
             android:textSize="14dp" />
 
         <TextView
@@ -106,7 +126,7 @@
             android:layout_height="wrap_content"
             android:layout_below="@+id/tvNeedA"
             android:text="Бренд:"
-            android:textColor="#000"
+            android:textColor="#fff"
             android:textSize="14dp" />
 
         <TextView
@@ -125,7 +145,7 @@
             android:layout_height="wrap_content"
             android:layout_below="@+id/tvNeedB"
             android:text="Количество:"
-            android:textColor="#000"
+            android:textColor="#fff"
             android:textSize="14dp" />
 
         <TextView
@@ -145,7 +165,7 @@
             android:layout_height="wrap_content"
             android:layout_above="@+id/tvCell"
             android:text="ячейка:"
-            android:textColor="#000"
+            android:textColor="#fff"
             android:textSize="14dp" />
 
         <TextView
@@ -165,7 +185,7 @@
             android:layout_height="wrap_content"
             android:layout_above="@+id/tvTray"
             android:text="лоток:"
-            android:textColor="#000"
+            android:textColor="#fff"
             android:textSize="14dp" />
 
         <TextView
@@ -186,10 +206,10 @@
         android:layout_height="wrap_content"
         android:layout_alignParentLeft="true"
         android:layout_alignParentStart="true"
-        android:background="#0000"
         android:layout_below="@+id/textView3"
         android:layout_toLeftOf="@+id/lLayout1"
-        android:layout_toStartOf="@+id/lLayout1">
+        android:layout_toStartOf="@+id/lLayout1"
+        android:background="#0000">
 
         <TextView
             android:id="@+id/tvSost"
@@ -203,5 +223,12 @@
 
     </RelativeLayout>
 
+    <com.stemsc.bt.ui.camera.GraphicOverlay
+        android:id="@+id/graphicOverlay"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_alignParentTop="true"
+        android:labelFor="@+id/ttttt"
+        android:orientation="horizontal" />
 
 </RelativeLayout>

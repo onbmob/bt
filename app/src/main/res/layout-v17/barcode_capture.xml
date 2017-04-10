@@ -10,22 +10,6 @@
     android:orientation="vertical"
     android:background="#000">
 
-    <TextView
-        android:layout_width="400dp"
-        android:layout_height="200dp"
-        android:layout_centerHorizontal="true"
-        android:layout_centerVertical="true"
-        android:background="@drawable/x" />
-
-
-
-    <com.stemsc.bt.ui.camera.CameraSourcePreview
-        android:id="@+id/preview"
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:orientation="vertical"
-        />
-
     <!--
 
     android:visibility="invisible"
@@ -39,6 +23,13 @@
         </com.google.android.gms.samples.vision.barcodereader.ui.camera.CameraSourcePreview>
     -->
 
+    <com.stemsc.bt.ui.camera.CameraSourcePreview
+        android:id="@+id/preview"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical"
+        />
+
     <TextView
         android:id="@+id/textView3"
         android:layout_width="wrap_content"
@@ -49,6 +40,38 @@
         android:text="@string/stemsc_txt"
         android:textColor="@color/colorMagenta"
         android:textSize="14dp" />
+
+    <SeekBar
+        android:id="@+id/seekBarS"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="250dp"
+        android:max="100"
+        android:progress="5" />
+
+    <SeekBar
+        android:id="@+id/seekBarH"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="280dp"
+        android:max="1280"
+        android:progress="5"
+        />
+
+    <SeekBar
+        android:id="@+id/seekBarV"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="310dp"
+        android:max="720"
+        android:progress="5"
+        />
+
+    <TextView
+        android:id="@+id/target"
+        android:layout_width="400dp"
+        android:layout_height="200dp"
+        android:background="@drawable/x" />
 
     <RelativeLayout
         android:id="@+id/lLayout1"
@@ -205,6 +228,7 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:layout_alignParentTop="true"
-        android:orientation="vertical" />
+        android:labelFor="@+id/ttttt"
+        android:orientation="horizontal" />
 
 </RelativeLayout>

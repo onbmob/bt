@@ -44,9 +44,12 @@ import android.view.GestureDetector;
 import android.view.MotionEvent;
 import android.view.ScaleGestureDetector;
 import android.view.View;
+import android.view.ViewGroup;
 import android.view.Window;
 import android.view.WindowManager;
+import android.widget.LinearLayout;
 import android.widget.RelativeLayout;
+import android.widget.SeekBar;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -84,7 +87,7 @@ import java.util.Iterator;
  * size, and ID of each barcode.
  */
 //public final class BarcodeCaptureActivity extends AppCompatActivity {
-public final class BarcodeCaptureActivity extends Activity {
+public final class BarcodeCaptureActivity extends Activity implements SeekBar.OnSeekBarChangeListener {
     private static final String TAG = "Barcode-reader";
 
     // intent request code to handle updating play services if needed.
@@ -120,6 +123,11 @@ public final class BarcodeCaptureActivity extends Activity {
     static TextView tvCell;
     static TextView tvTrayT;
     static TextView tvTray;
+
+    private SeekBar sbS;
+    private SeekBar sbV;
+    private SeekBar sbH;
+    private TextView target;
 
     boolean autoFocus;
     boolean useFlash;
@@ -212,6 +220,15 @@ public final class BarcodeCaptureActivity extends Activity {
         tvCell.setVisibility(View.INVISIBLE);
         tvTrayT.setVisibility(View.INVISIBLE);
         tvTray.setVisibility(View.INVISIBLE);
+
+        sbS = (SeekBar) findViewById(R.id.seekBarS);
+        sbS.setOnSeekBarChangeListener(this);
+        sbV = (SeekBar) findViewById(R.id.seekBarV);
+        sbV.setOnSeekBarChangeListener(this);
+        sbH = (SeekBar) findViewById(R.id.seekBarH);
+        sbH.setOnSeekBarChangeListener(this);
+        target = (TextView) findViewById(R.id.target);
+
 
         // Получаем json
 //        AsyncTask<Void, Void, String> tmp = new ParseTask("http://onbqth.com/route2.json");
@@ -431,6 +448,26 @@ public final class BarcodeCaptureActivity extends Activity {
                 mCameraSource = null;
             }
         }
+    }
+
+    @Override
+    public void onProgressChanged(SeekBar seekBar, int progress, boolean fromUser) {
+
+        RelativeLayout.LayoutParams MyParams = new RelativeLayout.LayoutParams(1280*sbS.getProgress()/100,720*sbS.getProgress()/100);
+        MyParams.addRule(RelativeLayout.ALIGN_PARENT_TOP);
+        MyParams.addRule(RelativeLayout.ALIGN_PARENT_LEFT);
+        MyParams.topMargin=sbV.getProgress();
+        MyParams.leftMargin=sbH.getProgress();
+        target.setLayoutParams(MyParams);
+
+    }
+
+    @Override
+    public void onStartTrackingTouch(SeekBar seekBar) {
+    }
+
+    @Override
+    public void onStopTrackingTouch(SeekBar seekBar) {
     }
 
     private class ScaleListener implements ScaleGestureDetector.OnScaleGestureListener {
