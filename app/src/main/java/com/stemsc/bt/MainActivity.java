@@ -50,10 +50,10 @@ public class MainActivity extends Activity implements View.OnClickListener {
 //    private CompoundButton autoFocus;
 //    private CompoundButton useFlash;
 
-    private TextView statusMessage;
-    private TextView barcodeValue;
-    private ImageView imageView;
-    private ImageView imageViewBC;
+//    private TextView statusMessage;
+//    private TextView barcodeValue;
+//    private ImageView imageView;
+//    private ImageView imageViewBC;
 
     private static final int RC_BARCODE_CAPTURE = 9001;
     private static final String TAG = "BarcodeMain";
@@ -63,29 +63,31 @@ public class MainActivity extends Activity implements View.OnClickListener {
         super.onCreate(savedInstanceState);
 
 //        contextOfApplication = getApplicationContext();
-       contextOfApplication = MainActivity.this;
+        contextOfApplication = MainActivity.this;
 
 
         setContentView(R.layout.activity_main);
 
-        statusMessage = (TextView) findViewById(R.id.status_message);
-        barcodeValue = (TextView) findViewById(R.id.barcode_value);
+//        statusMessage = (TextView) findViewById(R.id.status_message);
+//        barcodeValue = (TextView) findViewById(R.id.barcode_value);
 
 //        autoFocus = (CompoundButton) findViewById(R.id.m_auto_focus);
 //        useFlash = (CompoundButton) findViewById(R.id.m_use_flash);
 
-        imageView = (ImageView) findViewById(R.id.imageView);
-        imageView.setVisibility(View.INVISIBLE);
-        imageViewBC = (ImageView) findViewById(R.id.imageViewBC);
-        imageViewBC.setVisibility(View.INVISIBLE);
+//        imageView = (ImageView) findViewById(R.id.imageView);
+//        imageView.setVisibility(View.INVISIBLE);
+//        imageViewBC = (ImageView) findViewById(R.id.imageViewBC);
+//        imageViewBC.setVisibility(View.INVISIBLE);
 
         findViewById(R.id.read_barcode).setOnClickListener(this);
         findViewById(R.id.bt_menu).setOnClickListener(this);
 
     }
-    public static Context getContextOfApplication(){
+
+    public static Context getContextOfApplication() {
         return contextOfApplication;
     }
+
     /**
      * Called when a view has been clicked.
      *
@@ -110,7 +112,7 @@ public class MainActivity extends Activity implements View.OnClickListener {
 //            intent.putExtra(BarcodeCaptureActivity.UseFlash, useFlash.isChecked());
             startActivityForResult(intent, RC_BARCODE_CAPTURE);
 
-        } else if (v.getId() == R.id.bt_menu){
+        } else if (v.getId() == R.id.bt_menu) {
             Intent intent = new Intent(this, SettingAct.class);
             startActivity(intent);
         }
@@ -140,13 +142,15 @@ public class MainActivity extends Activity implements View.OnClickListener {
      */
     @Override
     protected void onActivityResult(int requestCode, int resultCode, Intent data) {
-        if (requestCode == RC_BARCODE_CAPTURE) {
-            if (resultCode == CommonStatusCodes.SUCCESS) {
-                if (data != null) {
-                    Barcode barcode = data.getParcelableExtra(BarcodeCaptureActivity.BarcodeObject);
-                    Bitmap img = data.getParcelableExtra("img");
-                    imageViewBC.setImageBitmap(img);
-                    imageViewBC.setVisibility(View.VISIBLE);
+        super.onActivityResult(requestCode, resultCode, data);
+
+//        if (requestCode == RC_BARCODE_CAPTURE) {
+//            if (resultCode == CommonStatusCodes.SUCCESS) {
+//                if (data != null) {
+//                    Barcode barcode = data.getParcelableExtra(BarcodeCaptureActivity.BarcodeObject);
+//                    Bitmap img = data.getParcelableExtra("img");
+//                    imageViewBC.setImageBitmap(img);
+//                    imageViewBC.setVisibility(View.VISIBLE);
 //                    statusMessage.setText(R.string.barcode_success);
 //                    barcodeValue.setText(barcode.displayValue);
 //                    Bundle bndl = intent.getExtras();
@@ -159,6 +163,7 @@ public class MainActivity extends Activity implements View.OnClickListener {
 //                           imageViewBC.setImageBitmap(img);
 //                        }
 //                    }
+/*
 
                     int sw = 0;
                     String s1 = "", s2 = "", s3 = "", s4 = "";
@@ -214,8 +219,13 @@ public class MainActivity extends Activity implements View.OnClickListener {
                 statusMessage.setText(String.format(getString(R.string.barcode_error),
                         CommonStatusCodes.getStatusCodeString(resultCode)));
             }
-        } else {
-            super.onActivityResult(requestCode, resultCode, data);
+
+       } else {
+                    super.onActivityResult(requestCode, resultCode, data);
+                }
+            }
         }
+        */
     }
+
 }
