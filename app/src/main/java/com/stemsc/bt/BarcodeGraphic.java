@@ -15,6 +15,8 @@
  */
 package com.stemsc.bt;
 
+import android.animation.ArgbEvaluator;
+import android.animation.ObjectAnimator;
 import android.content.Context;
 import android.content.SharedPreferences;
 //import android.content.res.Resources;
@@ -34,6 +36,8 @@ import com.google.android.gms.vision.barcode.Barcode;
 import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
+
+import static android.graphics.Color.*;
 
 /**
  * Graphic instance for rendering barcode position, size, and ID within an associated graphic
@@ -89,34 +93,34 @@ class BarcodeGraphic extends GraphicOverlay.Graphic {
         iWBC =sPref.getInt("wbc",100);
 
         mRectPaint = new Paint();
-        mRectPaint.setColor(Color.RED);
+        mRectPaint.setColor(RED);
         mRectPaint.setStyle(Paint.Style.STROKE);
         mRectPaint.setStrokeWidth(4.0f);
 
         mTextPaint = new Paint();
-        mTextPaint.setColor(Color.BLUE);
+        mTextPaint.setColor(BLUE);
         mTextPaint.setTextSize(36.0f);
 
         rTxtP = new Paint();
-        rTxtP.setColor(Color.RED);
+        rTxtP.setColor(RED);
         rTxtP.setTextSize(36.0f);
         rTxtP.setStrokeWidth(2.0f);
         rTxtP.setStyle(Paint.Style.STROKE);
 
         gTxtP = new Paint(rTxtP);
-        gTxtP.setColor(Color.GREEN);
+        gTxtP.setColor(GREEN);
 
         gRectP = new Paint();
         gRectP.setStrokeWidth(1);
         gRectP.setStyle(Paint.Style.FILL_AND_STROKE);
-        gRectP.setColor(Color.GREEN);
+        gRectP.setColor(GREEN);
         gRectP.setAlpha(120);
 
         bRectP = new Paint(gRectP);
-        bRectP.setColor(Color.BLUE);
+        bRectP.setColor(BLUE);
 
         rRectP = new Paint(gRectP);
-        rRectP.setColor(Color.RED);
+        rRectP.setColor(RED);
         rRectP.setAlpha(80);
 
         mp = MediaPlayer.create(applicationContext, R.raw.shot);
@@ -173,7 +177,7 @@ class BarcodeGraphic extends GraphicOverlay.Graphic {
                 || bcPlace == null
                 ) {
             Paint mTextStem = new Paint();
-            mTextStem.setColor(Color.RED);
+            mTextStem.setColor(RED);
             mTextStem.setTextSize(36.0f);
             canvas.drawText("Нет данных AJAX", 20, 80, mTextStem);
             Log.d(TAG, "==== Нет данных AJAX =====  " + barcode.rawValue);
@@ -486,6 +490,7 @@ class BarcodeGraphic extends GraphicOverlay.Graphic {
             if (str.equals(bc)) {
                 if (count-- == 0) {
                     reset();
+                    glance();
                     return true;
                 }
             } else {
@@ -498,5 +503,14 @@ class BarcodeGraphic extends GraphicOverlay.Graphic {
             return " (" + count + ") ";
         }
 
+        private void glance(){
+            BarcodeCaptureActivity.pb1.setVisibility(View.VISIBLE);
+            BarcodeCaptureActivity.pb1.postDelayed(new Runnable() {
+                @Override
+                public void run() {
+                    BarcodeCaptureActivity.pb1.setVisibility(View.INVISIBLE);
+                }
+            },1000L);
+        }
     }
 }

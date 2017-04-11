@@ -31,6 +31,7 @@ import android.content.pm.PackageManager;
 //import android.graphics.Color;
 //import android.graphics.Paint;
 //import android.graphics.PixelFormat;
+import android.graphics.Color;
 import android.hardware.Camera;
 import android.os.AsyncTask;
 import android.os.Build;
@@ -45,6 +46,7 @@ import android.view.ScaleGestureDetector;
 import android.view.View;
 import android.view.Window;
 import android.view.WindowManager;
+import android.widget.ProgressBar;
 import android.widget.RelativeLayout;
 import android.widget.SeekBar;
 import android.widget.TextView;
@@ -127,6 +129,7 @@ public final class BarcodeCaptureActivity extends Activity implements SeekBar.On
     private SeekBar sbW;
     private SeekBar sbH;
     private TextView target;
+    static ProgressBar pb1;
 
     private SharedPreferences sPref;
     private boolean autoFocus;
@@ -263,6 +266,7 @@ public final class BarcodeCaptureActivity extends Activity implements SeekBar.On
         tvCell = (TextView) findViewById(R.id.tvCell);
         tvTrayT = (TextView) findViewById(R.id.tvTrayT);
         tvTray = (TextView) findViewById(R.id.tvTray);
+        pb1 = (ProgressBar) findViewById(R.id.pb1);
 
         tvNeedAT.setVisibility(View.INVISIBLE);
         tvNeedA.setVisibility(View.INVISIBLE);

@@ -14,13 +14,6 @@
  * limitations under the License.
  */
 
-/*
-1.02.17
-Добавлен имидж для вывода баркода
-Заброкирован поворот экрана
-*/
-
-
 package com.stemsc.bt;
 
 import android.content.Context;
