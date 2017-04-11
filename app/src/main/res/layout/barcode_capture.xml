@@ -6,9 +6,9 @@
     android:id="@+id/topLayout"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="#000"
     android:keepScreenOn="true"
-    android:orientation="vertical"
-    android:background="#000">
+    android:orientation="vertical">
 
     <!--
 
@@ -27,218 +27,231 @@
         android:id="@+id/preview"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:orientation="vertical"
-        />
-
-    <TextView
-        android:id="@+id/textView3"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_alignParentLeft="true"
-        android:layout_alignParentStart="true"
-        android:layout_alignParentTop="true"
-        android:text="@string/stemsc_txt"
-        android:textColor="@color/colorMagenta"
-        android:textSize="14dp" />
-
-    <TextView
-        android:id="@+id/taPar"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text=""
-        android:textColor="@color/colorMagenta"
-        android:textSize="24dp"
-        android:layout_below="@+id/textView3"
-        android:layout_alignParentLeft="true"
-        android:layout_alignParentStart="true" />
-
-    <SeekBar
-        android:id="@+id/seekBarS"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="250dp"
-        android:max="100"
-        android:progress="5" />
-
-    <SeekBar
-        android:id="@+id/seekBarH"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="280dp"
-        android:max="1280"
-        android:progress="5"
-        />
-
-    <SeekBar
-        android:id="@+id/seekBarW"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="310dp"
-        android:max="720"
-        android:progress="5"
-        />
-
-    <TextView
-        android:id="@+id/target"
-        android:layout_width="400dp"
-        android:layout_height="200dp"
-        android:background="@drawable/x" />
+        android:orientation="vertical" />
 
     <RelativeLayout
-        android:id="@+id/lLayout1"
-        android:layout_width="180dp"
-        android:layout_height="wrap_content"
-        android:layout_alignParentBottom="true"
-        android:layout_alignParentRight="true"
-        android:layout_alignParentTop="true"
-        android:background="#0000">
+        android:id="@+id/rlR"
+        android:layout_width="640px"
+        android:layout_height="match_parent">
 
         <TextView
-            android:id="@+id/tvNeedT"
+            android:id="@+id/textView3"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:layout_alignParentLeft="true"
+            android:layout_alignParentStart="true"
             android:layout_alignParentTop="true"
-            android:text="Лоток:"
-            android:textColor="#fff"
+            android:text="@string/stemsc_txt"
+            android:textColor="@color/colorMagenta"
             android:textSize="14dp" />
 
         <TextView
-            android:id="@+id/tvNeed"
-            android:layout_width="match_parent"
+            android:id="@+id/taPar"
+            android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_below="@+id/tvNeedT"
+            android:layout_alignParentLeft="true"
+            android:layout_alignParentStart="true"
+            android:layout_below="@+id/textView3"
             android:text=""
-            android:textAlignment="center"
-            android:textColor="#ff0000"
-            android:textSize="36dp" />
+            android:textColor="@color/colorMagenta"
+            android:textSize="24dp" />
 
-        <TextView
-            android:id="@+id/tvNeedAT"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_below="@+id/tvNeed"
-            android:text="Aрт:"
-            android:textColor="#fff"
-            android:textSize="14dp" />
+    </RelativeLayout>
 
-        <TextView
-            android:id="@+id/tvNeedA"
+    <RelativeLayout
+        android:id="@+id/rlL"
+        android:layout_width="640px"
+        android:layout_height="match_parent"
+        android:layout_alignParentEnd="true"
+        android:layout_alignParentRight="true"
+        android:layout_alignParentTop="true">
+
+
+        <SeekBar
+            android:id="@+id/seekBarS"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_below="@+id/tvNeedAT"
-            android:text="2517"
-            android:textAlignment="center"
-            android:textAppearance="?android:attr/textAppearanceLarge"
-            android:textColor="#ff0000" />
+            android:layout_marginTop="250dp"
+            android:max="100"
+            android:progress="5" />
 
-        <TextView
-            android:id="@+id/tvNeedBT"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_below="@+id/tvNeedA"
-            android:text="Бренд:"
-            android:textColor="#fff"
-            android:textSize="14dp" />
-
-        <TextView
-            android:id="@+id/tvNeedB"
+        <SeekBar
+            android:id="@+id/seekBarH"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_below="@+id/tvNeedBT"
-            android:text="2517"
-            android:textAlignment="center"
-            android:textAppearance="?android:attr/textAppearanceLarge"
-            android:textColor="#ff0000" />
+            android:layout_marginTop="280dp"
+            android:max="640"
+            android:progress="5" />
 
-        <TextView
-            android:id="@+id/tvNeedQT"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_below="@+id/tvNeedB"
-            android:text="Количество:"
-            android:textColor="#fff"
-            android:textSize="14dp" />
-
-        <TextView
-            android:id="@+id/tvNeedQ"
+        <SeekBar
+            android:id="@+id/seekBarW"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_below="@+id/tvNeedQT"
-            android:text="0 из 3"
-            android:textAlignment="center"
-            android:textColor="#ff0000"
-            android:textSize="36dp" />
-
+            android:layout_marginTop="310dp"
+            android:max="720"
+            android:progress="5" />
 
         <TextView
-            android:id="@+id/tvCellT"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_above="@+id/tvCell"
-            android:text="ячейка:"
-            android:textColor="#fff"
-            android:textSize="14dp" />
+            android:id="@+id/target"
+            android:layout_width="400dp"
+            android:layout_height="200dp"
+            android:background="@drawable/x" />
 
-        <TextView
-            android:id="@+id/tvCell"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_above="@+id/tvTrayT"
-            android:text="19.25.14"
-            android:textAlignment="center"
-            android:textAppearance="?android:attr/textAppearanceLarge"
-            android:textColor="#00ff00" />
-
-
-        <TextView
-            android:id="@+id/tvTrayT"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_above="@+id/tvTray"
-            android:text="лоток:"
-            android:textColor="#fff"
-            android:textSize="14dp" />
-
-        <TextView
-            android:id="@+id/tvTray"
-            android:layout_width="match_parent"
+        <RelativeLayout
+            android:id="@+id/lLayout1"
+            android:layout_width="150dp"
             android:layout_height="wrap_content"
             android:layout_alignParentBottom="true"
-            android:text="2517"
-            android:textAlignment="center"
-            android:textAppearance="?android:attr/textAppearanceLarge"
-            android:textColor="#00ff00" />
-
-    </RelativeLayout>
-
-    <RelativeLayout
-        android:id="@+id/lLayout2"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_alignParentLeft="true"
-        android:layout_alignParentStart="true"
-        android:layout_below="@+id/textView3"
-        android:layout_toLeftOf="@+id/lLayout1"
-        android:layout_toStartOf="@+id/lLayout1"
-        android:background="#0000">
-
-        <TextView
-            android:id="@+id/tvSost"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
+            android:layout_alignParentRight="true"
             android:layout_alignParentTop="true"
-            android:gravity="center"
-            android:text="Выберите лоток"
-            android:textColor="#00ff00"
-            android:textSize="36dp" />
+            android:background="#0000">
+
+            <TextView
+                android:id="@+id/tvNeedT"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentTop="true"
+                android:text="Лоток:"
+                android:textColor="#fff"
+                android:textSize="14dp" />
+
+            <TextView
+                android:id="@+id/tvNeed"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/tvNeedT"
+                android:text=""
+                android:textAlignment="center"
+                android:textColor="#ff0000"
+                android:textSize="36dp" />
+
+            <TextView
+                android:id="@+id/tvNeedAT"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/tvNeed"
+                android:text="Aрт:"
+                android:textColor="#fff"
+                android:textSize="14dp" />
+
+            <TextView
+                android:id="@+id/tvNeedA"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/tvNeedAT"
+                android:text="2517"
+                android:textAlignment="center"
+                android:textAppearance="?android:attr/textAppearanceLarge"
+                android:textColor="#ff0000" />
+
+            <TextView
+                android:id="@+id/tvNeedBT"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/tvNeedA"
+                android:text="Бренд:"
+                android:textColor="#fff"
+                android:textSize="14dp" />
+
+            <TextView
+                android:id="@+id/tvNeedB"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/tvNeedBT"
+                android:text="2517"
+                android:textAlignment="center"
+                android:textAppearance="?android:attr/textAppearanceLarge"
+                android:textColor="#ff0000" />
+
+            <TextView
+                android:id="@+id/tvNeedQT"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/tvNeedB"
+                android:text="Количество:"
+                android:textColor="#fff"
+                android:textSize="14dp" />
+
+            <TextView
+                android:id="@+id/tvNeedQ"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/tvNeedQT"
+                android:text="0 из 3"
+                android:textAlignment="center"
+                android:textColor="#ff0000"
+                android:textSize="36dp" />
+
+
+            <TextView
+                android:id="@+id/tvCellT"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_above="@+id/tvCell"
+                android:text="ячейка:"
+                android:textColor="#fff"
+                android:textSize="14dp" />
+
+            <TextView
+                android:id="@+id/tvCell"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_above="@+id/tvTrayT"
+                android:text="19.25.14"
+                android:textAlignment="center"
+                android:textAppearance="?android:attr/textAppearanceLarge"
+                android:textColor="#00ff00" />
+
+
+            <TextView
+                android:id="@+id/tvTrayT"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_above="@+id/tvTray"
+                android:text="лоток:"
+                android:textColor="#fff"
+                android:textSize="14dp" />
+
+            <TextView
+                android:id="@+id/tvTray"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_alignParentBottom="true"
+                android:text="2517"
+                android:textAlignment="center"
+                android:textAppearance="?android:attr/textAppearanceLarge"
+                android:textColor="#00ff00" />
+
+        </RelativeLayout>
+
+        <RelativeLayout
+            android:id="@+id/lLayout2"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentLeft="true"
+            android:layout_alignParentStart="true"
+            android:layout_toLeftOf="@+id/lLayout1"
+            android:layout_toStartOf="@+id/lLayout1"
+            android:background="#0000">
+
+            <TextView
+                android:id="@+id/tvSost"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_alignParentTop="true"
+                android:gravity="center"
+                android:text="Выберите лоток"
+                android:textColor="#00ff00"
+                android:textSize="36dp" />
+
+        </RelativeLayout>
+
+        <com.stemsc.bt.ui.camera.GraphicOverlay
+            android:id="@+id/graphicOverlay"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_alignParentTop="true"
+            android:orientation="horizontal" />
 
     </RelativeLayout>
-
-    <com.stemsc.bt.ui.camera.GraphicOverlay
-        android:id="@+id/graphicOverlay"
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:layout_alignParentTop="true"
-        android:orientation="horizontal" />
-
 </RelativeLayout>

@@ -50,6 +50,7 @@ import android.widget.SeekBar;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.epson.moverio.btcontrol.DisplayControl;
 import com.google.android.gms.common.ConnectionResult;
 import com.google.android.gms.common.GoogleApiAvailability;
 //import com.google.android.gms.common.api.CommonStatusCodes;
@@ -135,6 +136,9 @@ public final class BarcodeCaptureActivity extends Activity implements SeekBar.On
     private int mH;
     private int mW;
 
+    DisplayControl _displayControl;
+    int _mode, _backlight;
+
 
     /**
      * Initializes the UI and creates the detector pipeline.
@@ -144,10 +148,18 @@ public final class BarcodeCaptureActivity extends Activity implements SeekBar.On
         super.onCreate(icicle);
 
         //чтобы небыло заголовка активити
-        requestWindowFeature(Window.FEATURE_NO_TITLE);
+//        requestWindowFeature(Window.FEATURE_NO_TITLE);
         //убрать статусную строку
-        getWindow().setFlags(WindowManager.LayoutParams.FLAG_FULLSCREEN,
-                WindowManager.LayoutParams.FLAG_FULLSCREEN);
+//        getWindow().setFlags(WindowManager.LayoutParams.FLAG_FULLSCREEN,
+//                WindowManager.LayoutParams.FLAG_FULLSCREEN);
+
+        View view = this.getWindow().getDecorView();
+        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.KITKAT) {
+            view.setSystemUiVisibility(View.SYSTEM_UI_FLAG_HIDE_NAVIGATION |
+                    View.SYSTEM_UI_FLAG_FULLSCREEN | View.SYSTEM_UI_FLAG_IMMERSIVE_STICKY);
+        }
+
+
         setContentView(R.layout.barcode_capture);
         mPreview = (CameraSourcePreview) findViewById(R.id.preview);
         mGraphicOverlay = (GraphicOverlay<BarcodeGraphic>) findViewById(R.id.graphicOverlay);
@@ -202,7 +214,7 @@ public final class BarcodeCaptureActivity extends Activity implements SeekBar.On
         sbH.setOnSeekBarChangeListener(this);
 
         target = (TextView) findViewById(R.id.target);
-        RelativeLayout.LayoutParams MyParams = new RelativeLayout.LayoutParams(128*mS/10,72*mS/10);
+        RelativeLayout.LayoutParams MyParams = new RelativeLayout.LayoutParams(64*mS/10,72*mS/10);
         MyParams.addRule(RelativeLayout.ALIGN_PARENT_TOP);
         MyParams.addRule(RelativeLayout.ALIGN_PARENT_LEFT);
         MyParams.topMargin= mW;
@@ -213,6 +225,18 @@ public final class BarcodeCaptureActivity extends Activity implements SeekBar.On
         sbW.setProgress(mW);
         sbH.setProgress(mH);
         ((TextView) findViewById(R.id.taPar)).setText(""+mS+" "+mW+" "+mH);
+
+        // create instance
+        _displayControl = new DisplayControl(this);
+        // get current display condition
+        _mode = _displayControl.getMode();
+//        _backlight = _displayControl.getBacklight();
+
+        if (_mode == DisplayControl.DISPLAY_MODE_2D){
+            _mode = DisplayControl.DISPLAY_MODE_3D;
+            _displayControl.setMode(_mode,true);
+        }
+
 
 
         if (mRaw) {
@@ -474,7 +498,7 @@ public final class BarcodeCaptureActivity extends Activity implements SeekBar.On
     @Override
     public void onProgressChanged(SeekBar seekBar, int progress, boolean fromUser) {
 
-        RelativeLayout.LayoutParams MyParams = new RelativeLayout.LayoutParams(1280*sbS.getProgress()/100,720*sbS.getProgress()/100);
+        RelativeLayout.LayoutParams MyParams = new RelativeLayout.LayoutParams(64*sbS.getProgress()/10,72*sbS.getProgress()/10);
         MyParams.addRule(RelativeLayout.ALIGN_PARENT_TOP);
         MyParams.addRule(RelativeLayout.ALIGN_PARENT_LEFT);
         MyParams.topMargin= sbW.getProgress();
