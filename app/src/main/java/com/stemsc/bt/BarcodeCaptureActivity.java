@@ -60,6 +60,7 @@ import com.google.android.gms.common.GoogleApiAvailability;
 //import com.google.android.gms.samples.vision.barcodereader.ui.camera.GraphicOverlay;
 import com.google.android.gms.vision.MultiProcessor;
 //import com.google.android.gms.vision.barcode.Barcode;
+import com.google.android.gms.vision.barcode.Barcode;
 import com.google.android.gms.vision.barcode.BarcodeDetector;
 import com.stemsc.bt.ui.camera.CameraSource;
 import com.stemsc.bt.ui.camera.CameraSourcePreview;
@@ -340,7 +341,7 @@ public final class BarcodeCaptureActivity extends Activity implements SeekBar.On
         // graphics for each barcode on screen.  The factory is used by the multi-processor to
         // create a separate tracker instance for each barcode.
         BarcodeDetector barcodeDetector = new BarcodeDetector.Builder(context)
-//                .setBarcodeFormats(Barcode.EAN_13 | Barcode.QR_CODE) // !!!! ограничение кодов
+                .setBarcodeFormats(Barcode.EAN_13 | Barcode.QR_CODE) // !!!! ограничение кодов
                 .build();
         BarcodeTrackerFactory barcodeFactory = new BarcodeTrackerFactory(mGraphicOverlay);
         barcodeDetector.setProcessor(
